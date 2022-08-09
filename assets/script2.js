@@ -1,9 +1,9 @@
+//Retrieve Moment function for displaying current day
 var date = moment().format("dddd, MMMM Do");
 $("#currentDay").text(date);
 
 
-//functino to create update time, loop through time-blocks, specify current hour
-
+//Function to create update time, loop through time-blocks, specify current hour, and add CSS classes as necessary.
 function hourColor(){
     var currentHour = moment().hours();
 
@@ -25,11 +25,10 @@ function hourColor(){
     });
 }
 
+//Calls function
 hourColor();
 
-//Key is the name, value is the input/items
-// 
-
+//Function for user input and saving input to local storage
 $(".saveBtn").on("click", function(){
     var value = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
@@ -37,7 +36,7 @@ $(".saveBtn").on("click", function(){
     localStorage.setItem(time, value);
 });
 
-
+//Printing local storage
 $("#hour-9 .description").val(localStorage.getItem("hour-9"));
 $("#hour-10 .description").val(localStorage.getItem("hour-10"));
 $("#hour-11 .description").val(localStorage.getItem("hour-11"));
